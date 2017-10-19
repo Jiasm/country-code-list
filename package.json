@@ -1,0 +1,30 @@
+{
+  "name": "country-code-list",
+  "version": "1.0.0",
+  "description": "Data from Facebook: https://developers.facebook.com/docs/accountkit/countrycodes/",
+  "main": "webpack.config.js",
+  "scripts": {
+    "start": "anywhere -p 8080",
+    "watch": "webpack -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jiasm/country-code-list.git"
+  },
+  "author": "jiasm",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jiasm/country-code-list/issues"
+  },
+  "homepage": "https://github.com/Jiasm/country-code-list#readme",
+  "devDependencies": {
+    "eslint": "^3.9.0",
+    "eslint-config-standard": "^6.2.1",
+    "eslint-plugin-promise": "^3.3.0",
+    "eslint-plugin-standard": "^2.0.1",
+    "webpack": "^3.5.5"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.26.0"
+  }
+}
