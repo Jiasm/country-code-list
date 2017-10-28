@@ -1,4 +1,4 @@
-export class CountryList {
+export default class CountryList {
   constructor ({
     data
   }) {

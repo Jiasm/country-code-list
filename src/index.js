@@ -1,3 +1,7 @@
 import codes from './codes'
+import CodeList from './normal'
 
-console.log(codes)
+window.addEventListener('load', () => {
+  let container = document.querySelector('#container')
+  new CodeList({codes, container})
+})
