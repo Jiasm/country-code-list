@@ -1,0 +1,43 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+.code-group {
+  &::before {
+    content: attr(data-key);
+    display: block;
+    height: 27px;
+    line-height: 27px;
+    padding-left: 16px;
+    background-color: #e8e8e8;
+    color: #252525;
+    font-size: 12px;
+  }
+}
+
+.code-item {
+  $height: 40px;
+  display: flex;
+  padding: 0 16px;
+  font-size: 14px;
+  height: $height;
+  line-height: $height;
+}
+
+.code-item-area {
+  flex: 1;
+  align-items: center;
+}
+
+.code-item-code {
+  color: #2f8ecc;
+
+  &::before {
+    content: '+';
+  }
+}

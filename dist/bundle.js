@@ -9021,14 +9021,16 @@ module.exports = function (regExp, replace) {
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__codes__ = __webpack_require__(328);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__normal__ = __webpack_require__(330);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__normal_index_scss__ = __webpack_require__(331);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__normal_index_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__normal_index_scss__);
+
 
 
 
 window.addEventListener('load', () => {
-  let container = document.querySelector('#container')
-  new __WEBPACK_IMPORTED_MODULE_1__normal__["a" /* default */]({codes: __WEBPACK_IMPORTED_MODULE_0__codes__["a" /* default */], container})
-})
-
+  let container = document.querySelector('#container');
+  new __WEBPACK_IMPORTED_MODULE_1__normal__["a" /* default */]({ codes: __WEBPACK_IMPORTED_MODULE_0__codes__["a" /* default */], container });
+});
 
 /***/ }),
 /* 328 */
@@ -9038,7 +9040,6 @@ window.addEventListener('load', () => {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__code_zh_CN__ = __webpack_require__(329);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__code_zh_CN___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__code_zh_CN__);
 /* harmony reexport (default from non-hamory) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__code_zh_CN___default.a; });
-
 
 
 /***/ }),
@@ -9053,15 +9054,15 @@ module.exports = {"A":[{"area":"安道尔","code":"376","short":"AD"},{"area":"�
 
 "use strict";
 class CodeList {
-  constructor (params) {
-    this.codes = params.codes
-    this.container = params.container
+  constructor(params) {
+    this.codes = params.codes;
+    this.container = params.container;
 
-    this.drawList()
+    this.drawList();
   }
 
-  drawList () {
-    let {codes, container} = this
+  drawList() {
+    let { codes, container } = this;
 
     let template = `
       <ul class="code-list">
@@ -9069,26 +9070,31 @@ class CodeList {
           <li class="code-group" data-key="${key}">
             <ul class="code-group-list">
               ${itemList.map(item => `
-                <li class="code-item" data-code="${item.code}">
-                  <p class="code-item-short">${item.short}</p>
+                <li class="code-item" data-short="${item.short}">
                   <p class="code-item-area">${item.area}</p>
+                  <p class="code-item-code">${item.code}</p>
                 </li>
               `).join('')}
             </ul>
           </li>
         `).join('')}
       </ul>
-    `
+    `;
 
-    container.innerHTML = template
+    container.innerHTML = template;
 
-    return 0
+    return 0;
   }
 }
 /* harmony export (immutable) */ __webpack_exports__["a"] = CodeList;
 
 
+/***/ }),
+/* 331 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=main.js.map
+//# sourceMappingURL=../main.js.map

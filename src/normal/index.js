@@ -15,9 +15,9 @@ export default class CodeList {
           <li class="code-group" data-key="${key}">
             <ul class="code-group-list">
               ${itemList.map(item => `
-                <li class="code-item" data-code="${item.code}">
-                  <p class="code-item-short">${item.short}</p>
+                <li class="code-item" data-short="${item.short}">
                   <p class="code-item-area">${item.area}</p>
+                  <p class="code-item-code">${item.code}</p>
                 </li>
               `).join('')}
             </ul>
