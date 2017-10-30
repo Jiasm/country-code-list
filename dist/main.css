@@ -20,9 +20,10 @@ li {
   display: -ms-flexbox;
   display: flex;
   padding: 0 16px;
+  margin: 18px 0;
   font-size: 14px;
-  height: 40px;
-  line-height: 40px; }
+  height: 14px;
+  line-height: 14px; }
 
 .code-item-area {
   -webkit-box-flex: 1;
@@ -33,6 +34,6 @@ li {
   align-items: center; }
 
 .code-item-code {
-  color: #2f8ecc; }
+  color: #3899ff; }
   .code-item-code::before {
     content: '+'; }

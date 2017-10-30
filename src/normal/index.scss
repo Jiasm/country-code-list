@@ -21,9 +21,10 @@ li {
 }
 
 .code-item {
-  $height: 40px;
+  $height: 14px;
   display: flex;
   padding: 0 16px;
+  margin: 18px 0;
   font-size: 14px;
   height: $height;
   line-height: $height;
@@ -35,7 +36,7 @@ li {
 }
 
 .code-item-code {
-  color: #2f8ecc;
+  color: #3899ff;
 
   &::before {
     content: '+';
