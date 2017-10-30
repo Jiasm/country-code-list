@@ -18,6 +18,15 @@ li {
     color: #252525;
     font-size: 12px;
   }
+
+  &.cursor {
+    padding-top: 27px;
+    &::before {
+      position: fixed;
+      width: 100%;
+      top: 0;
+    }
+  }
 }
 
 .code-item {

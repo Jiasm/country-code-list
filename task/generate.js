@@ -24,7 +24,7 @@ folder.forEach(fileName => {
  * @api    private
  */
 function generateData (data) {
-  let result = {}
+  let result = []
   data.forEach(item => {
     let shortKey = item[short][0]
     let items = result[shortKey] = result[shortKey] || []
@@ -32,8 +32,14 @@ function generateData (data) {
     items.push(item)
   })
 
-  Object.entries(result).forEach(([shortKey, items]) => {
-    result[shortKey] = items.sort((a, b) => a[short].slice(1).charCodeAt() - b[short].slice(1).charCodeAt())
+  // console.log(Object.values(Object.entries(result).sort(([a], [b]) => a.charCodeAt() - b.charCodeAt())).map(([item]) => item));
+  Object.entries(result).sort(([a], [b]) => a.charCodeAt() - b.charCodeAt()).forEach(([shortKey, items]) => {
+
+    // fix JSON.stringify bug
+    result.push({
+      shortKey,
+      items: items.sort((a, b) => a[short].slice(1).charCodeAt() - b[short].slice(1).charCodeAt())
+    })
   })
 
   return result
