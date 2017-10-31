@@ -58,7 +58,7 @@ export default class CodeList {
       if (cursor === null) return
 
       let cursorVal = this.headerMapValues[cursor]
-      container.querySelectorAll('.code-group').forEach({classList} => classList.contains('cursor') && classList.remove('cursor'))
+      container.querySelectorAll('.code-group').forEach(({classList}) => classList.contains('cursor') && classList.remove('cursor'))
 
       let $cursor = container.querySelector(`.code-group[data-key=${cursorVal}]`).classList
       !$cursor.contains('cursor') && $cursor.add('cursor')

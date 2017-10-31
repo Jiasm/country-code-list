@@ -9021,7 +9021,6 @@ module.exports = function (regExp, replace) {
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__codes__ = __webpack_require__(328);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__normal__ = __webpack_require__(330);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__normal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__normal__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__normal_index_scss__ = __webpack_require__(331);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__normal_index_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__normal_index_scss__);
 
@@ -9030,7 +9029,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 window.addEventListener('load', () => {
   let container = document.querySelector('#container');
-  new __WEBPACK_IMPORTED_MODULE_1__normal__["default"]({ codes: __WEBPACK_IMPORTED_MODULE_0__codes__["a" /* default */], container });
+  new __WEBPACK_IMPORTED_MODULE_1__normal__["a" /* default */]({ codes: __WEBPACK_IMPORTED_MODULE_0__codes__["a" /* default */], container });
 });
 
 /***/ }),
@@ -9051,10 +9050,79 @@ module.exports = [{"shortKey":"A","items":[{"area":"安道尔","code":"376","sho
 
 /***/ }),
 /* 330 */
-/***/ (function(module, __webpack_exports__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-throw new Error("Module build failed: SyntaxError: Unexpected token, expected , (61:68)\n\n\u001b[0m \u001b[90m 59 | \u001b[39m\n \u001b[90m 60 | \u001b[39m\u001b[32m      let cursorVal = this.headerMapValues[cursor]\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 61 | \u001b[39m\u001b[32m      container.querySelectorAll('.code-group').forEach({classList} => classList.contains('cursor') && classList.remove('cursor'))\u001b[39m\n \u001b[90m    | \u001b[39m                                                                    \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 62 | \u001b[39m\n \u001b[90m 63 | \u001b[39m\u001b[32m      let $cursor = container.querySelector(`\u001b[39m\u001b[33m.\u001b[39mcode\u001b[33m-\u001b[39mgroup[data\u001b[33m-\u001b[39mkey\u001b[33m=\u001b[39m${cursorVal}]\u001b[32m`).classList\u001b[39m\n \u001b[90m 64 | \u001b[39m\u001b[32m      !$cursor.contains('cursor') && $cursor.add('cursor')\u001b[39m\u001b[0m\n");
+class CodeList {
+  constructor({ codes, container, context = window }) {
+    this.codes = codes;
+    this.container = container;
+    this.context = context;
+
+    this.drawList();
+    this.initEvent();
+  }
+
+  drawList() {
+    let { codes, container } = this;
+
+    let headerMap = this.headerMap = {};
+    let start = container.offsetTop;
+
+    let template = `
+      <ul class="code-list">
+        ${codes.map(({ shortKey, items }) => `
+          <li class="code-group" data-key="${shortKey}">
+            <ul class="code-group-list">
+              ${items.map(item => `
+                <li class="code-item" data-short="${item.short}">
+                  <p class="code-item-area">${item.area}</p>
+                  <p class="code-item-code">${item.code}</p>
+                </li>
+              `).join('')}
+            </ul>
+          </li>
+        `).join('')}
+      </ul>
+    `;
+
+    container.innerHTML = template;
+
+    container.querySelectorAll('.code-group').forEach(item => {
+      headerMap[start + item.offsetTop] = item.dataset['key'];
+    });
+
+    this.headerMapKeys = Object.keys(headerMap);
+    this.headerMapValues = Object.values(headerMap);
+  }
+
+  initEvent() {
+    let { container, context: { window: win } } = this;
+
+    win.addEventListener('scroll', e => {
+      let { scrollY } = win;
+      let cursor = null;
+      this.headerMapKeys.some((offset, index) => {
+        if (scrollY >= offset) {
+          cursor = index;
+        } else {
+          return true;
+        }
+      });
+
+      if (cursor === null) return;
+
+      let cursorVal = this.headerMapValues[cursor];
+      container.querySelectorAll('.code-group').forEach(({ classList }) => classList.contains('cursor') && classList.remove('cursor'));
+
+      let $cursor = container.querySelector(`.code-group[data-key=${cursorVal}]`).classList;
+      !$cursor.contains('cursor') && $cursor.add('cursor');
+      // console.log(cursor, this.headerMapValues[cursor])
+    });
+  }
+}
+/* harmony export (immutable) */ __webpack_exports__["a"] = CodeList;
+
 
 /***/ }),
 /* 331 */
