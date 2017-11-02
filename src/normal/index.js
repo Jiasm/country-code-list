@@ -29,6 +29,13 @@ export default class CodeList {
           </li>
         `).join('')}
       </ul>
+      <ul class="short-map-menu">
+        ${codes.map(({shortKey}) => `
+          <li class="short-map-item" data-key="${shortKey}">
+            ${shortKey}
+          </li>
+        `).join('')}
+      </ul>
     `
 
     container.innerHTML = template
