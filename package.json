@@ -1,6 +1,6 @@
 {
   "name": "country-code-list",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Data from Facebook: https://developers.facebook.com/docs/accountkit/countrycodes/",
   "main": "webpack.config.js",
   "scripts": {
