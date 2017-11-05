@@ -9070,27 +9070,33 @@ class CodeList {
     let shortMenuMap = {};
 
     let template = `
-      <ul class="code-list">
-        ${codes.map(({ shortKey, items }) => `
-          <li class="code-group" data-key="${shortKey}">
-            <ul class="code-group-list">
-              ${items.map(item => `
-                <li class="code-item" data-short="${item.short}">
-                  <p class="code-item-area">${item.area}</p>
-                  <p class="code-item-code">${item.code}</p>
-                </li>
-              `).join('')}
-            </ul>
-          </li>
-        `).join('')}
-      </ul>
-      <ul class="short-map-menu">
-        ${codes.map(({ shortKey }) => `
-          <li class="short-map-item" data-key="${shortKey}">
-            ${shortKey}
-          </li>
-        `).join('')}
-      </ul>
+      <div class="search-wrap">
+        <input class="search-input" placeholder="搜索" />
+        <div class="search-btn"><i class="search-icon"></i></div>
+      </div>
+      <div class="list-wrap">
+        <ul class="code-list">
+          ${codes.map(({ shortKey, items }) => `
+            <li class="code-group" data-key="${shortKey}">
+              <ul class="code-group-list">
+                ${items.map(item => `
+                  <li class="code-item" data-short="${item.short}">
+                    <p class="code-item-area">${item.area}</p>
+                    <p class="code-item-code">${item.code}</p>
+                  </li>
+                `).join('')}
+              </ul>
+            </li>
+          `).join('')}
+        </ul>
+        <ul class="short-map-menu">
+          ${codes.map(({ shortKey }) => `
+            <li class="short-map-item" data-key="${shortKey}">
+              ${shortKey}
+            </li>
+          `).join('')}
+        </ul>
+      </div>
     `;
 
     container.innerHTML = template;
@@ -9126,10 +9132,10 @@ class CodeList {
         }
       });
 
-      if (cursor === null) return;
-
       let cursorVal = this.headerMapValues[cursor];
       container.querySelectorAll('.code-group').forEach(({ classList }) => classList.contains('cursor') && classList.remove('cursor'));
+
+      if (cursor === null) return;
 
       let $cursor = container.querySelector(`.code-group[data-key=${cursorVal}]`).classList;
       !$cursor.contains('cursor') && $cursor.add('cursor');
