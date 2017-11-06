@@ -9163,6 +9163,18 @@ class CodeList {
       }
       e.preventDefault();
     });
+
+    function searchHandler() {
+      console.log(container.querySelector('.search-input').value);
+    }
+
+    container.querySelector('.search-btn').addEventListener('click', searchHandler);
+
+    container.querySelector('.search-input').addEventListener('keyup', e => {
+      if (e.keyCode === 13) {
+        searchHandler();
+      }
+    });
   }
 }
 /* harmony export (immutable) */ __webpack_exports__["a"] = CodeList;
