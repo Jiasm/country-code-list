@@ -73,7 +73,7 @@ export default class CodeList {
       let {scrollY} = win
       let cursor = null
       this.headerMapKeys.some((offset, index) => {
-        if (scrollY >= offset) {
+        if ((scrollY + 54) >= offset) {
           cursor = index
         } else {
           return true
