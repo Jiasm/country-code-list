@@ -25,12 +25,13 @@ export default class CodeList {
             <li class="code-group" data-key="${shortKey}">
               <ul class="code-group-list">
                 ${items.map(item => `
-                  <a class="code-item-target" href="#item-${item.short}" id="item-${item.short}">
-                    <li class="code-item" data-short="${item.short}">
+                  <li class="code-item" data-short="${item.short}">
+                    <a class="code-item-target" href="#item-${item.short}">
                       <p class="code-item-area">${item.area}</p>
                       <p class="code-item-code">${item.code}</p>
-                    </li>
-                  </a>
+                    </a>
+                    <span class="code-item-shadow-target" id="item-${item.short}"></span>
+                  </li>
                 `).join('')}
               </ul>
             </li>
